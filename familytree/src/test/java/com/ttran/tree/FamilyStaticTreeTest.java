@@ -15,7 +15,7 @@ import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInA
 //import static org.junit.Assert.assertThat;
 
 
-public class FamilyTreeTest {
+public class FamilyStaticTreeTest {
 
     private static String csv ="null,0,grandpa|0,1,son|0,2,daugther|1,3,grandkid|1,4,grandkid|2,5,grandkid|5,6,greatgrandkid";
 
@@ -27,6 +27,12 @@ public class FamilyTreeTest {
         Person grandpa= Person.newPerson(0, null, "grandpa");
         Person son= Person.newPerson(1, 0, "son");
         Person daugther= Person.newPerson(2, 0, "daugther");
+        Person grandkid3= Person.newPerson(3, 1, "grandkid");
+        Person grandkid4= Person.newPerson(4, 1, "grandkid");
+        Person grandkid5= Person.newPerson(5, 2, "grandkid");
+        Person greatgrandkid= Person.newPerson(6, 5, "greatgrandkid");
+
+
 
         assertThat(root.getSelf().getId().intValue() , is(0));
         assertThat(root.getSelf(), is(grandpa) );
@@ -36,10 +42,6 @@ public class FamilyTreeTest {
                 TreeNode.newTreeNode(daugther)
         ));
 
-        Person grandkid3= Person.newPerson(3, 1, "grandkid");
-        Person grandkid4= Person.newPerson(4, 1, "grandkid");
-        Person grandkid5= Person.newPerson(5, 2, "grandkid");
-        Person greatgrandkid= Person.newPerson(6, 5, "greatgrandkid");
 
 
         for (TreeNode node : root.getChildren()){
@@ -79,7 +81,10 @@ public class FamilyTreeTest {
         // since the ID is in order you can just sort person by ID
         FamilyTree familyTree = new FamilyTree();
 
-        return familyTree.newTree(nodes);
+        TreeNode treeNode= familyTree.newTree(nodes);
+
+        familyTree.traverseTree(treeNode);
+        return treeNode;
 
     }
 
@@ -100,14 +105,13 @@ public class FamilyTreeTest {
         return list;
     }
 
+
     // this can be a static helper method
-    private Integer toIntteger(String s){
+    private static Integer toIntteger(String s){
         try {
-           return   Integer.parseInt(s);
+            return   Integer.parseInt(s);
         }catch (Exception e){
             return null;
         }
     }
-
-
 }

@@ -100,4 +100,13 @@ public class FamilyTree {
         Optional<TreeNode> optional= nodes.stream().filter(treeNode -> treeNode.getSelf().getParentId() ==null).findAny();
         return optional.get();
     }
+
+    public void traverseTree(TreeNode tree) {
+
+        for (TreeNode treeNode: tree.getChildren()){
+            System.out.println(tree.getSelf().toString());
+            traverseTree(treeNode);
+        }
+
+    }
 }
