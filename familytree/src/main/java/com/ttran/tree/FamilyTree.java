@@ -8,7 +8,7 @@ public class FamilyTree {
 
 
     /**
-     * This method will take an ordered base on ID and create a family tree
+     * This method will take an ordered list base on ID and create a family tree
      *                      grandpa
      *                son           daughter
      *         grandkid grandkid       grandkid
