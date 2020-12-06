@@ -9,11 +9,14 @@ public class CountingValey {
         int down = 0;
 
         for(int i=0; i < step; i++) {
+
+            // track the up count
             if (path.charAt(i) == 'D') {
                 up--;
             } else {
                 up++;
             }
+            // Only count valey if we pass level and not up
             if (level && up < 0) {
                 down++;
             }

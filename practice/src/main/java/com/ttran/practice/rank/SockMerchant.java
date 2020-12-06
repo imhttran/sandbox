@@ -9,6 +9,7 @@ public class SockMerchant {
         int i = 0;
         Arrays.sort(ar);
 
+        // n is number of socks we want to check
         while(i < n){
             if(i + 1 >= n){break;}
             int sockA = ar[i];
@@ -16,15 +17,18 @@ public class SockMerchant {
 
             if(sockA == sockB){
                 sockPairs++;
-                i += 2;
+                i += 2;  // skip 2
             }
             else{
-                i += 1;
+                i += 1; // odd out, skip this
             }
         }
         return sockPairs;
     }
 
+
+    // Count how many pairs of sock.
+    // 1. Can we sort first, YES
 
     public static void main(String[] args) {
         int[] sockes = {10, 20, 20, 10, 10, 30, 50, 10, 20};

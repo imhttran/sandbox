@@ -6,14 +6,18 @@ public class RepeatString {
         char[] arr = s.toCharArray();
         char a = 'a';
         long count = 0;
+
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == a) {
                 count++;
             }
         }
 
-        long rem = n % arr.length;
-        count = (n / arr.length) * count;
+        System.out.println("count per = " + count);
+
+        count = (n / arr.length) * count;  // multiply per
+
+        long rem = n % arr.length;  // get left over
         for (int j = 0; j < rem; j++) {
             if (arr[j] == a) {
                 count++;
@@ -26,7 +30,8 @@ public class RepeatString {
     public static void main(String[] args) {
         String s = "aba";
         long count = repeatedString(s, 10);
-        System.out.println(count);
+//        "abaabaabaa"
+        System.out.println("count = "+count);
     }
 
 }
