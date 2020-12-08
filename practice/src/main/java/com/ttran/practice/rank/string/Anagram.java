@@ -57,8 +57,8 @@ public class Anagram {
     static boolean isAnagramArray(String a, String b){
 
 
-        char[] aa = a.toCharArray();
-        char[] bb = b.toCharArray();
+        char[] aa = a.toLowerCase().toCharArray();
+        char[] bb = b.toLowerCase().toCharArray();
 
         Arrays.sort(aa);
         Arrays.sort(bb);
